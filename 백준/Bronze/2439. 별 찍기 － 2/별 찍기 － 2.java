@@ -9,10 +9,17 @@ public class Main{
         int a = Integer.parseInt(br.readLine());
         
         for (int i = 1; i<=a; i++){
-            for (int j = a; j>=1; j--){
-                if (i>=j) sb.append("*");
-                else sb.append(" ");
+            // for (int j = a; j>=1; j--){
+            //     if (i>=j) sb.append("*");
+            //     else sb.append(" ");
+            // }
+            for(int j=a; j>i; j--){
+                sb.append(" ");
             }
+            for(int j=1; j<=i; j++){
+                sb.append("*");
+            }
+            
             sb.append("\n");
         }
         System.out.println(sb);
