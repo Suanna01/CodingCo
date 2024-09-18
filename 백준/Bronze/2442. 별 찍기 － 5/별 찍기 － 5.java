@@ -4,7 +4,7 @@ import java.util.*;
 public class Main{
     public static void main(String[] args) throws Exception{
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        StringBuffer sb = new StringBuffer();
+        StringBuilder sb = new StringBuilder();
         
         int n = Integer.parseInt(br.readLine());
         
@@ -18,7 +18,7 @@ public class Main{
             sb.append("\n");
         }
         
-        System.out.println(sb);
+        System.out.print(sb);
         br.close();
     }
 }
