@@ -1,5 +1,4 @@
 import java.io.*;
-import java.util.*;
 
 public class Main{
     public static void main(String[] args) throws Exception{
@@ -8,14 +7,16 @@ public class Main{
         
         int[] a = new int[9];
         
+        // for (int i = 0; i<9; i++){
+        //     a[i] = Integer.parseInt(br.readLine());
+        // }
+        
+        // int max = 0;
+        int max = Integer.MIN_VALUE;
+        int index = -1;
+        
         for (int i = 0; i<9; i++){
             a[i] = Integer.parseInt(br.readLine());
-        }
-        
-        int max = 0;
-        int index = 0;
-        
-        for (int i = 0; i<9; i++){
             if(a[i]>max) {
                 max=a[i];
                 index = i;
