@@ -3,7 +3,7 @@ import java.io.*;
 public class Main{
     public static void main(String[] args) throws Exception{
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+        // BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         
         int[] a = new int[9];
         
@@ -23,10 +23,13 @@ public class Main{
             }
         }
         
-        bw.write(String.valueOf(max)+"\n");
-        bw.write(String.valueOf(index+1));
+        // bw.write(String.valueOf(max)+"\n");
+        // bw.write(String.valueOf(index+1));
         
-        bw.flush();
+        // bw.flush();
+        System.out.println(max);
+        System.out.println(index +1);
+        
         br.close();
         
         
