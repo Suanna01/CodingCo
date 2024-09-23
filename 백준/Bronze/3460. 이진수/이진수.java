@@ -4,7 +4,8 @@ import java.util.*;
 public class Main{
     public static void main(String[] args) throws IOException{
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+        // BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+        StringBuilder sb = new StringBuilder();
         
         int n = Integer.parseInt(br.readLine()); 
         int[] a = new int[n];
@@ -21,13 +22,12 @@ public class Main{
             aa.add(a[i]);
             
             for (int j = 0; j<aa.size(); j++){
-                if(aa.get(j)==1) bw.write(j+" ");
+                if(aa.get(j)==1) sb.append(j+" ");
             }
-            bw.write("\n");
+            sb.append("\n");
         }
         
-        bw.flush();
-        br.close();
+        System.out.println(sb);
         
     }
 }
