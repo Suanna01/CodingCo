@@ -7,7 +7,7 @@ class Solution {
                 for (int k = j+1; k<nums.length; k++){
                     int sum = nums[i]+nums[j]+nums[k];
                     int count = 0;
-                    for (int l = 2; l < sum-1; l++){
+                    for (int l = 2; l <= sum-1; l++){
                         if (sum%l==0) {
                             count++;
                         }
