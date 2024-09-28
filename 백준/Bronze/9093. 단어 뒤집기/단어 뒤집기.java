@@ -10,11 +10,11 @@ public class Main{
             String s = br.readLine();
             String[] ss = s.split(" ");
             for (int j = 0; j<ss.length; j++){
-                String[] S = ss[j].split("");
-                for (int k = S.length-1; k>=0; k--){
-                    sb.append(S[k]);
-                }
-                sb.append(" ");
+                StringBuilder S = new StringBuilder(ss[j]);
+                // for (int k = S.length-1; k>=0; k--){
+                //     sb.append(S[k]);
+                // }
+                sb.append(S.reverse()+" ");
             }
             sb.append("\n");
         }
