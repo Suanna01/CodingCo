@@ -6,6 +6,7 @@ public class Main{
     static boolean[][] a;
     static int n;
     static boolean[] b;
+    static int count = 0;
     
     public static void main(String[] args) throws IOException{
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -27,16 +28,14 @@ public class Main{
         
         dfs(1);
         
-        int count = 0;
-        for (int i = 1; i<=n; i++){
-            if (b[i]==true) count++;
-        }
         System.out.println(count-1);
     }
     public static void dfs(int node){
+        count++;
+        b[node]=true;
+        
         for (int i=1; i<=n; i++){
             if (a[node][i]==true && b[i]!=true){
-                b[i]=true;
                 dfs(i);
             }
             
