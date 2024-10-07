@@ -4,29 +4,35 @@ import java.util.*;
 public class Main{
     public static void main(String[] args) throws IOException{
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));        
         StringBuilder sb = new StringBuilder();
         
         int n = Integer.parseInt(br.readLine());
-        Set<String> s = new HashSet<>();
+        String[] s = new String[n];
         
         for (int i = 0; i<n; i++) {
-            String S = br.readLine();
-            s.add(S);
+            s[i] = br.readLine();
         }
         
-        List<String> ss = new ArrayList<>(s);
-        
-        Collections.sort(ss, (a,b) -> {
-            if (a.length() != b.length()) {
-                return Integer.compare(a.length(), b.length());
+        Arrays.sort(s, new Comparator<String>() {
+            public int compare(String a, String b){
+                if (a.length() == b.length()) {
+                    return a.compareTo(b);
+                }
+                return a.length() - b.length();
             }
-            return a.compareTo(b);
         });
         
-        for (String SS : ss){
-            sb.append(SS+'\n');
+        sb.append(s[0]+'\n');
+        
+        for (int i = 1; i<n; i++){
+            if (!s[i].equals(s[i-1])) 
+                sb.append(s[i]+'\n');
         }
         
-        System.out.println(sb);
+        bw.append(sb);
+        bw.flush();
+        bw.close();
+        br.close();
     }
 }
