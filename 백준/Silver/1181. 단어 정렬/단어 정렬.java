@@ -15,6 +15,7 @@ public class Main{
         }
         
         Arrays.sort(s, new Comparator<String>() {
+            @Override
             public int compare(String a, String b){
                 if (a.length() == b.length()) {
                     return a.compareTo(b);
