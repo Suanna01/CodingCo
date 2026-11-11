@@ -2,46 +2,42 @@ import java.util.*;
 
 class Solution {
     public int solution(int[] priorities, int location) {
-        if (priorities.length == 0) {
-            return 0;
+        Queue<int[]> queue = new ArrayDeque<>();
+        
+        for (int i = 0; i < priorities.length; i++) {
+            queue.offer(new int[]{i, priorities[i]});
         }
         
         int answer = 0;
         
-        Queue<Integer> q = new LinkedList<>();
-        
-        for (int i = 0; i<priorities.length; i++){
-            q.add(priorities[i]);
-        }
-        
-        Arrays.sort(priorities);
-        
-        for (int i = 0; i < priorities.length / 2; i++) {
-            int temp = priorities[i];
-            priorities[i] = priorities[priorities.length - 1 - i];
-            priorities[priorities.length - 1 - i] = temp;
-        }
-        
-        int first = priorities[0];
-        
-        while(!q.isEmpty()){
-            Integer a = q.poll();
-            if (a==first){
+        while (!queue.isEmpty()) {
+            int[] current = queue.poll();
+            boolean hasHigher = false;
+            
+            for (int[] priority : queue) {
+                // 대기 중인 프로세스 중 현재 값보다 큰게 있다면,
+                if (priority[1] > current[1]) {
+                    hasHigher = true;
+                }
+            }
+            
+            // 우선순위가 더 높은게 있다면,
+            if (hasHigher) {
+                // 현재 값 꺼내서 다시 큐에 넣기.
+                queue.offer(current);                    
+            } 
+            // 현재 나간 게 제일 높았다면,
+            else { 
                 answer++;
+                // location이랑 인덱스가 같은지 검사하기
+                if (location == current[0]) {
+                    return answer;
+                }
                 
-                if (answer < priorities.length) {
-                    first = priorities[answer];
-                } 
-                
-                location--;
-                if (location==-1) return answer;
             }
-            else{
-                location--;
-                if (location==-1) location = q.size();
-                q.add(a);
-            }
+            
         }
+        
         return answer;
     }
 }
