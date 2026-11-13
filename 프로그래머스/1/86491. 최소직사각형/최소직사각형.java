@@ -9,16 +9,16 @@ class Solution {
         */
         
         int max = 0;
-        int min = 0;
+        int maxOfMin = 0;
         
         for (int[] size : sizes) {
             max = Math.max(max, Math.max(size[0], size[1]));
-            min = Math.max(min, Math.min(size[0], size[1]));
+            maxOfMin = Math.max(maxOfMin, Math.min(size[0], size[1]));
         }
         /*
         Math.min(size[0], size[1]) → 현재 명함의 작은 변
         Math.max(min, ...) → 지금까지 발견한 작은 변 중 가장 큰 값
         */
-        return max*min;
+        return max*maxOfMin;
     }
 }
