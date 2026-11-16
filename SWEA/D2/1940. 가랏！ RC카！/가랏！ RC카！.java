@@ -14,20 +14,16 @@ class Solution
             for (int j = 0; j < command_count; j++) {
             	StringTokenizer st = new StringTokenizer(br.readLine());
                 int command = Integer.parseInt(st.nextToken());
-                if (command == 0) {
-                    // 유지
-                    distance += speed;
-                }
-                else if (command == 1) {
+                
+                if (command == 1) {
                     // 가속
                     speed += Integer.parseInt(st.nextToken());
-                    distance += speed;
                 }
-                else {
+                else if (command == 2){
                     // 감속
                     speed = Math.max(0, speed - Integer.parseInt(st.nextToken()));
-                    distance += speed;
                 }
+                distance += speed;
             }
             System.out.println("#" + i + " " + distance);
         }
